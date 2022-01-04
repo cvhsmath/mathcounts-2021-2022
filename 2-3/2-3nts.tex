@@ -1,0 +1,113 @@
+\documentclass[twocolumn]{article}
+
+\usepackage{amsmath}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{flushend}
+\usepackage{enumitem}
+\usepackage[group-separator={,}]{siunitx}
+
+\title{2.3 Combinatorics Notes}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\subsection*{Factorials}
+Let's say we wanted to count the number of ways to order $7$ letters. We can 
+count the number of ways to choose the letter in each position. There are $7$ 
+ways to choose the first letter, $6$ ways to choose the second letter (since we 
+can't repeat the first letter), $5$ ways to choose the third letter, and so on. 
+Therefore, the number of ways to order $7$ objects is $7 \cdot 6 \cdot 5 \cdot 4 
+\cdot 3 \cdot 2 \cdot 1$. In general, the number of ways to order $n$ objects is 
+$n \cdot (n - 1) \cdot (n - 2) \cdot \dots \cdot 2 \cdot 1$. It turns out that 
+this is very useful in combinatorics, so there's a special notation for it. The 
+\textbf{factorial} of a non-negative integer $n$ is written as $n!$ and it is 
+equal to $n \cdot (n - 1) \cdot (n - 2) \cdot \dots \cdot 2 \cdot 1$.
+
+The factorial of $0$ is defined as $1$. To see why, notice that to get from $3!  
+= 6$ to $2! = 2$, we divide by $3$, and to get from $2!$ to $1!$, we divide by 
+$2$. Therefore, to get from $1!$ to $0!$, we divide by $1$, so $0! = 
+\frac{1!}{1} = 1$.
+
+\subsection*{Permutations}
+Let's say instead of counting the number of ways to order $7$ letters, we want 
+to count the number of ways to pic $3$ letters out of $7$ where the order in 
+which we pick the letters matters. In other words, we want to count the number 
+of ways to pick $3$ letters out of $7$ and then arrange them in some order. 
+There are $7$ ways to choose the first letter, $6$ ways to choose the second 
+letter, and $5$ ways to choose the third letter, so the total is $7 \cdot 6 
+\cdot 5$. In general, the number of ways to choose $k$ objects out of a total of 
+$n$ objects where order matters is $n \cdot (n - 1) \cdot (n - 2) \cdot \dots 
+\cdot (n - k + 1)$. We can use factorials to write this in a more simple way. If 
+we have $\frac{n!}{(n - k)!}$, then the $(n - k)!$ cancels out with the last $n 
+- k$ terms of $n!$, so we are left with the first $k$ terms of $n!$. For 
+example, $\frac{7!}{(7 - 3)!} = \frac{7 \cdot 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 
+\cdot 1}{4 \cdot 3 \cdot 2 \cdot 1} = 7 \cdot 6 \cdot 5$. There are several 
+notations for permutations. Some of them are $P^n_k$, $_nP_k$, $^nP_k$, $P_{n, 
+k}$, and $P(n, k)$. All of these denote the number of ways to choose $k$ objects 
+out of $n$ where order matters, which is $\frac{n!}{(n - k)!}$. $_nP_k$ and 
+$P(n, k)$ tends to be more commonly used. Also, each way of choosing $k$ objects 
+out of $n$ where order matters is called a \textbf{$k$-permutation of $n$}.
+
+\subsection*{Combinations}
+Suppose we want to count the number of ways to pick $3$ letters out of $7$ 
+letters, where order doesn't matter. This is the number of $3$-combinations of 
+$7$. We can start with $P(7, 3)$, which counts the number of ways to pick $3$ 
+objects out of $7$ where order matters. For any group of $3$ different objects, 
+we can order them in $3!$ different ways, so $P(7, 3)$ counts each combination 
+$3!$ times. Therefore, we divide $P(7, 3)$ by $3!$ to get the number of 
+combinations, which is $\frac{7!}{3!(7 - 3)!}$. In general, the number of ways 
+to choose $k$ objects out of $n$ where order doesn't matter is $\frac{n!}{k!(n - 
+k)}!$, which is just the number of permutations divided by $k!$. The notation 
+for combinations are $C^n_k$, $_nC_k$, $^nC_k$, $C_{n, k}$, $C(n, k)$, and 
+$\binom{n}{k}$. These can be read as ``$n$ choose $k$'', and they're also called 
+\textbf{binomial coefficients} for reasons that we'll discuss later.
+
+\subsection*{Computing Permutations and Combinations}
+The formulas for permutations and combinations ($P(n, k) = \frac{n!}{(n - k)!}$ 
+and $C(n, k) = \frac{n!}{k!(n - k)!}$) look simple and are useful for proving 
+theorems, but you shouldn't use them to actually compute the combinations and 
+permutations. The reason is that you can have extremely large numbers which end 
+up canceling out. For example, if you tried to compute $C(100, 2)$ using the 
+formula, you would have to evaluate $100!$, which is a number with $158$ digits. 
+Instead, notice that $\frac{100!}{98!}$ is just $100 \cdot 99$, so 
+$\frac{100!}{2!98!} = \frac{100 \cdot 99}{2} = 4950$. You could also think of it 
+as having $100$ ways to choose the first object and $99$ ways to choose the 
+second object, and dividing by $2$ to account for the $2$ possible orderings of 
+each combination. Additionally, instead of multiplying all the numbers in the 
+numerator and denominator before dividing them, it's easier to cancel out common 
+factors first. For example, if we wanted to compute $C(13, 5)$, we would have 
+$\frac{13 \cdot 12 \cdot 11 \cdot 10 \cdot 9}{5 \cdot 4 \cdot 3 \cdot 2}$. $3 
+\cdot 4 = 12$ and $5 \cdot 2 = 10$, so those cancel out and we're just left with 
+$12 \cdot 11 \cdot 9$.
+
+\subsection*{Letter Arrangement Problems}
+How many arrangements of the letters $COUNTING$ are possible? Your first thought 
+might be that there are $8$ letters, so it's just $8!$, but notice that two of 
+the letters are the same. $8!$ is the number of ways to arrange $8$ different 
+letters, such as $COUN_1 TIN_2 G$. Each arrangement that we want is counted 
+twice here, since there are two ways to arrange $N_1$ and $N_2$. For example, 
+$CN_1 TIN_2 GUO$ and $CN_2 TIN_1 GUO$ are actually the same. Therefore, we 
+divide $8!$ by $2! = 2$ to get the final answer. If $3$ of the letters are the 
+same, we would divide by $3!$. If we had $AOOOEE$, we would take $6!$, divide it 
+by $3!$ to account for the three $O$s, and divide it by $2!$ to account for the 
+two $E$s.
+
+\subsection*{Permutations With Restrictions}
+How many \emph{even} five-digit numbers contain each of the digits from $1$ to 
+$5$? You might try $\frac{5!}{2}$, but this assumes that half of the numbers are 
+even, which isn't true because there are more odd digits from $1$ to $5$ than 
+even digits. First of all, note that the five-digit numbers containing each of 
+the digits from $1$ to $5$ are the same as the five digit numbers made of of the 
+digits from $1$ to $5$ without repeats. We might try to count the number of ways 
+to choose each of the digits. There are $5$ ways to choose the first digit, $4$ 
+ways to choose the second digit, and so on. But when we get to the last digit, 
+there will only be one choice left, and it could be odd. The solution to this is 
+to start counting the digit with the most restrictions first. If we started from 
+the last digit, we see that there are $2$ ways to choose the last digit, $4$ 
+ways to choose the second-to last digit, $3$ ways to choose the middle digit, 
+$2$ ways to choose the second digit, and $1$ way to choose the first digit, so 
+the total is $2 \cdot 4 \cdot 3 \cdot 2 = 48$. \textbf{Counting the thing with 
+the most restrictions first is good general strategy.}
+\end{document}
