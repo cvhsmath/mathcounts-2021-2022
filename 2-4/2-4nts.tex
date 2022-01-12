@@ -2,8 +2,8 @@
 
 \usepackage[margin=0.5in]{geometry}
 \usepackage{flushend}
-\usepackage{asymptote}
 \usepackage{amsmath}
+\usepackage{tikz}
 \usepackage{enumitem}
 
 \title{2.4 More Combinatorics Notes}
@@ -16,23 +16,14 @@
 \section*{Concepts}
 
 \subsection*{Paths on a Grid}
-\subsection*{Paths on a Grid}
 Combinations sometimes appear in places where you don't expect them. One example 
 of this is counting the number of paths on a grid. Let's say we have a $4$ by 
 $5$ grid and we wanted to know the number of paths from the top left corner to 
 the bottom right corner which only move downwards and rightwards.
 \begin{center}
-	\begin{asy}
-		unitsize(0.5inch);
-		for (int i = 0; i < 4; ++i)
-		{
-			draw((0, i) -- (4, i));
-		}
-		for (int i = 0; i < 5; ++i)
-		{
-			draw((i, 0) -- (i, 3));
-		}
-	\end{asy}
+	\begin{tikzpicture}
+		\draw (0,0) grid (4,3);
+	\end{tikzpicture}
 \end{center}
 In order to get from the top left corner to the bottom right corner, we have to 
 move downwards exactly three times and move rightwards exactly four times in any 
