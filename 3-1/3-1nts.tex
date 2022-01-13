@@ -1,0 +1,267 @@
+\documentclass{article}
+
+\usepackage[margin=0.5in]{geometry}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\DeclareMathOperator{\lcm}{lcm}
+
+\title{3.1 Prime and Composite Numbers Notes}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Concepts}
+\begin{multicols}{2}
+	
+	\subsection*{Divisibility Rules}
+	We often need to quickly test for divisibility by small numbers.
+	For example, you might want to check if $28376$ is divisible by $3$, $6$, and $8$ quickly.
+	Here is a list of common divisibility rules.
+	
+	\begin{tabular}{|c|l|}
+		\hline
+		\# & Rule \\
+		\hline
+		$2$    & Last digit is even \\
+		$3$    & Sum of the digits is a multiple of $3$ \\
+		$4$    & Last two digits form a multiple of $4$ \\
+		$5$    & Last digit is $0$ or $5$ \\
+		$6$    & Divisible by $2$ and $3$ \\
+		$8$    & Last three digits form a multiple of $8$ \\
+		$9$    & Sum of the digits is a multiple of $9$ \\
+		$10$   & Last digit is $0$ \\
+		$11$   & Alternating digit sum is a multiple of $11$ \\
+		$12$   & Divisible by both $3$ and $4$ \\
+		$14$   & Divisible by both $2$ and $7$ \\
+		$15$   & Divisible by both $3$ and $5$ \\
+		$16$   & Last four digits form a multiple of $16$ \\
+		$18$   & Divisible by both $2$ and $9$ \\
+		$20$   & Last digit is $0$ and second-to-last digit is even \\
+		\hline
+	\end{tabular}
+	
+	For $11$, the alternating digit sum is the first digit minus the second digit plus the
+	third digit minus the fourth digit and so on.
+	To check if a number $n$ is divisible by $k$, we just check if $n$ satisfies the condition
+	for $k$.
+	For example, to check if $12345$ is a multiple of $3$,
+	we check if the sum of the digits of $12345$ is a multiple of $3$.
+	
+	You can find more rules at \url{https://en.wikipedia.org/wiki/Divisibility_rule}.
+	
+	\subsection*{Testing for Primes}
+	Here's how to quickly test if a number is prime.
+	
+	First, it's useful to have all the primes less than $100$ memorized.
+	You can find a list of these online.
+	Next, check if the last digit of the number is $1$, $3$, $7$, or $9$.
+	If it's not one of these, then the number is a multiple of $2$ or $5$.
+	Then we can use trial division, which means we check if the number is divisible
+	by potential factors.
+	We only have to test if the number is divisible by primes,
+	because if a number $n$ is divisible by a composite number $k$,
+	then it is also divisible by any prime factor of $k$.
+	Also, we only have to test potential factors up to the square root of the number
+	that we want to check.
+	This is because if a number $n$ is divisible by some factor $k$ that is greater than $\sqrt{n}$,
+	then it is also divisible by $\frac{n}{k}$, which is less than $\sqrt{n}$.
+	
+	For example, to check if $131$ is a prime, we can check if its divisible by
+	$2$, $3$, $5$, $7$, or $11$.
+	The next prime, $13$, is bigger than $\sqrt{131}$, so we can stop here.
+	
+	\subsection*{The Fundamental Theorem of Arithmetic}
+	The \textbf{fundamental theorem of arithmetic} states that every positive integer
+	has a unique prime factorization.
+	
+	\subsection*{Prime Factorizations of Perfect Squares}
+	A number is a perfect square if and only if its prime factorization contains only
+	even exponents.
+	To see why, lets say we had a number with a prime factorization of
+	$p_1^{k_1} p_2^{k_2} \dots p_n^{k_n}$, where $p_1, p_2, \dots, p_n$ are primes.
+	If we took the square root, it would look like
+	$\sqrt{p_1^{k_1}} \sqrt{p_2^{k_2}} \dots \sqrt{p_n^{k_n}}$.
+	Taking the square root of a power is the same as halving the exponent,
+	and we can only do this if the exponent is even.
+	Therefore, to tell if the number is a perfect square, we simply check if all the exponents
+	in the prime factorization are even.
+	
+	\subsection*{Counting Factors}
+	A number $m$ is a factor of $n$ if the prime factorization of $m$ contains only the primes
+	in the prime factorization of $n$, and each of the exponents in $m$ is less than or equal to
+	the corresponding exponent in $n$.
+	If the prime factorization of $n$ is $p_1^{k_1} p_2^{k_2} \dots p_n^{k_n}$,
+	then each factor of $n$ is of the form $p_1^{j_1} p_2^{j_2} \dots p_n^{j_n}$,
+	where $j_1 \leq k_1$, $j_2 \leq k_2$, and so on.
+	For example, the prime factorization of $12$ is $2^2 \cdot 3$, so its factors are
+	$2^0 \cdot 3^0 = 1$, $2^0 \cdot 3^1 = 3$, $2^1 \cdot 3^0 = 2$, $2^1 \cdot 3^1 = 6$,
+	$2^2 \cdot 3^0 = 4$, and $2^2 \cdot 3^1 = 12$.
+	
+	We can use this fact to quickly count the number of factors without having to list all of them.
+	Each factor is of the form $p_1^{j_1} p_2^{j_2} \dots p_n^{j_n}$, and each $j$ value
+	can be anything from $0$ to its corresponding $k$ value.
+	Therefore, there are $k_1 + 1$ possible values for $j_1$, $k_2 + 1$ possible values for $j_2$,
+	and so on.
+	Each combinations of $j$ values result in a different number because prime factorizations
+	are unique, so the number of factors is the number of combinations of $j$ values,
+	which is $(k_1 + 1)(k_2 + 1) \dots (k_n + 1)$.
+	In other words, to find the number of factors, we add one to all the exponents in the
+	prime factorization and the multiply them together.
+	
+	\subsection*{Greatest Common Divisor}
+	The \textbf{greatest common divisor} of two or more numbers is the greatest integer that
+	divides all of those numbers.
+	For example, the GCD of $15$ and $25$ is $5$ because $5$ divides both $15$ and $25$,
+	and no number bigger than $5$ divides both $15$ and $25$.
+	The GCD of $a$ and $b$ is written as $\gcd(a, b)$.
+	To find the GCD of two numbers, we can first find their prime factorizations.
+	For $15$ and $25$, that would be $3 \cdot 5$ and $5^2$.
+	Then we simply take what's in common.
+	Both prime factorizations have a $5$, so this is the GCD.
+	If we had $36$ and $48$, the prime factorizations would be $2^2 \cdot 3^2$ and $2^4 \cdot 3$.
+	Both prime factorizations have two $2$s and one $3$, so the GCD is $2^2 \cdot 3 = 12$.
+	
+	Those of you feeling adventurous can try using the \textbf{Euclidean algorithm},
+	which is a super duper fast way of finding the GCD.
+	First, we write the two numbers next to each other with the bigger one on the left.
+	Then, we take the \emph{remainder} when dividing the first number by the second,
+	and write it at the end.
+	We repeat the process of appending the remainder when dividing the last two numbers
+	until we get a zero.
+	Then the second-to-last number is a GCD.
+	
+	For example, to find the GCD of $97238478$ and $2938792$,
+	we first write them together on a line:
+	\[97238478 \quad 2938792\]
+	Then, we take the remainder when dividing the two numbers, and write it at the end.
+	\[97238478 \quad 2938792 \quad 258342\]
+	Then we take the remainder when dividing $2938792$ by $258342$, and write it at the end.
+	\[97238478 \quad 2938792 \quad 258342 \quad 97030\]
+	Now take the remainder when dividing $258342$ by $97030$, and write it at the end.
+	\[97238478 \quad 2938792 \quad 258342 \quad 97030 \quad 64282\]
+	We repeat this until we get a zero.
+	(I'm omitting some numbers at the beginning to save space.)
+	\[97030 \quad 64282 \quad 32748 \quad 31534 \quad 1214 \quad 1184 \quad 30 \quad 14 \quad 2
+	\quad 0\]
+	Therefore, the GCD is $2$.
+	Don't be intimidated by how long that was.
+	It would have taken longer to factor those two numbers,
+	and for smaller numbers it is much faster.
+	
+	\subsection*{Least Common Multiple}
+	The \textbf{least common multiple} of two or more numbers is the least integer that
+	is a multiple of all of those numbers.
+	The LCM of $a$ and $b$ is written as $\lcm(a, b)$.
+	To find the LCM of two numbers, we can find their prime factorizations, and then take everything
+	that is in at least one of the numbers.
+	For example, to find the LCM of $36$ and $48$ which have $2^2 \cdot 3^2$ and $2^4 \cdot 3$
+	as their prime factorizations, we can take $2^4$ and $3^2$ to get $2^4 \cdot 3^2 = 144$.
+	
+	The LCM is related to the GCD in that the LCM of two numbers is their product divided by
+	their GCD.
+	For example, the LCM of $36$ and $48$ is $\frac{36 \cdot 48}{12} = 144$.
+	
+	\subsection*{Applications of GCD and LCM}
+	Lets say we want to know what numbers are factors of both $42$ and $105$.
+	We can do this by listing all the factors of $42$ and $105$, but there is an easier way using
+	the properties of the GCD.
+	It turns out that the factors of both $42$ and $105$ are just the factors of $\gcd(42, 105)$.
+	To see why, recall that a number $a$ is a factor of $b$ if and only if the
+	prime factorization of $a$ is a subset of the prime factorization of $b$.
+	In other words, the prime factorization of $b$ includes everything in the prime factorization of
+	$a$.
+	Therefore, the numbers which are a factor of both $42$ and $105$ are the numbers which have
+	prime factorizations included in both the prime factorization of $42$ and the
+	prime factorization of $105$.
+	We want to know what's in common between the prime factorization of $42$ and the prime
+	factorization of $105$, which is just the GCD of $42$ and $105$.
+	To find the numbers which are factors of both $42$ and $105$, we find the GCD of $42$ and $105$,
+	which is $21$, and we just look at all the factors of $21$.
+
+	To find the numbers that are a multiple of both $42$ and $105$, we just use the LCM of $42$
+	and $105$.
+	The LCM of $42$ and $105$ is $210$, so the multiples of both $42$ and $105$ are just
+	the multiples of $210$.
+	This works because the multiples of both $42$ and $105$ have prime factorizations which
+	include both the prime factorization of $42$ and the prime factorization of $105$, and the
+	LCM of $42$ and $105$ contains everything that is either in the prime factorization of $42$
+	or the prime factorization of $105$.
+	
+	\subsection*{Sum of Factors}
+	Let's say we wanted to find the sum of the factors of $144$.
+	We can just list all of them, but that's annoying.
+	A better way is to find the prime factorization of $144$, which is $2^4 \cdot 3^2$,
+	and then do $(2^0 + 2^1 + 2^2 + 2^3 + 2^4)(3^0 + 3^1 + 3^2)
+	= (1 + 2 + 4 + 8 + 16)(1 + 3 + 9) = 403$.
+	To see why this works, we can expand the product using the distributive property,
+	an area model, or whatever else you prefer.
+	This will result in $2^0 \cdot 3^0 + 2^0 \cdot 3^1 + 2^1 \cdot 3^0 + 2^1 \cdot 3^1
+	+ 2^2 \cdot 3^0 + 2^2 \cdot 3^1 + 2^3 \cdot 3^0 + 2^3 \cdot 3^1$,
+	which are the factors of $144$.
+	
+	\subsection*{Product of Factors}
+	To find the product of the factors of a number, we just raise the number to half the
+	number of factors.
+	For example, the number of factors of $144$ is $5 \cdot 3 = 15$, so the product of the factors
+	is $144^{15 / 2} = 15407021574586368$.
+	To see why this works, imagine writing out the factors of $144$ twice,
+	once in increasing order and once in decreasing order:
+	\[
+		\begin{array}{cccccccc}
+			1   & 2  & 3  & 4  & 6  & \dots & 72 & 144 \\
+			144 & 72 & 48 & 36 & 24 & \dots & 2  & 1
+		\end{array}
+	\]
+	If we multiplied all of these numbers together, we would get the square of the
+	product of the factors, since each factor is in there twice.
+	If you multiplied each pair of vertically adjacent numbers, you would see that the product
+	is always $144$.
+	The number of such pairs is the number of factors, so the product of all of these numbers
+	is $144$ raised to the number of factors, which is $144^{15}$.
+	This is the square of the product of the factors, so we take the square root,
+	which is the same as halving the exponent.
+\end{multicols}
+
+\section*{Problems}
+
+\begin{multicols}{2}
+	\subsection*{Divisibility Rules}
+	\begin{enumerate}
+		\item Find the prime factorization of $123420$.
+			\vspace{3cm}
+	\end{enumerate}
+	
+	\subsection*{GCD and LCM}
+	\begin{enumerate}[resume]
+		\item Find the prime factorization of $97$.
+			\vspace{3cm}
+		\item Find the GCD of $100$ and $1000$.
+			\vspace{3cm}
+		\item Find the LCM of $100$ and $1000$.
+			\vspace{3cm}
+		\item Show that the product of the LCM and the GCF of two integers
+			is equal to the product of those two integers.
+			\vspace{3cm}
+		\item If the GCD of two numbers is $8$ and the product of the numbers is $2880$,
+			what is the LCM of the numbers?
+			\vspace{3cm}
+	\end{enumerate}
+	
+	\subsection*{Factors}
+	\begin{enumerate}[resume]
+		\item Find the prime factorization of $240$.
+			\vspace{3cm}
+		\item How many factors does $240$ have?
+			\vspace{3cm}
+		\item What is the product of the factors of $240$?
+			\vspace{3cm}
+		\item What is the sum of the factors of $240$?
+			\vspace{3cm}
+	\end{enumerate}
+\end{multicols}
+\end{document}
