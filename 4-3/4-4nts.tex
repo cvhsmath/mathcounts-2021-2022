@@ -1,0 +1,47 @@
+\documentclass{article}
+
+\usepackage[margin=0.5in]{geometry}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{hyperref}
+
+\title{4.4 Solid Geometry Notes}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{multicols}{2}
+	\section*{Terminology}
+	A \textbf{polyhedron} is basically a three-dimensional shape formed by flat polygon \textbf{faces}.
+	The straight lines that form the borders of the polygon faces are called \textbf{edges} and the points that are at the intersection of edges are called \textbf{vertices}.
+	A \textbf{convex} polyhedron is a polyhedron that only bends inwards, similar to how a convex polygon only contains interior angles less than $\ang{180}$.
+
+	\section*{Euler's Formula}
+	In a convex polyhedron, if $V$ is the number of vertices, $E$ is the number of edges, and $F$ is the number of faces, then $V - E + F = 2$.
+	The proof is on Wikipedia (\url{https://en.wikipedia.org/wiki/Euler_characteristic#Proof_of_Euler's_formula}) if you're interested.
+	
+	\section*{Volume and Surface Area Formulas}
+	\subsection*{Prisms}
+	A prism is a polyhedron comprising an $n$-sided polygonal base, a second base which is a translated copy (rigidly moved without rotation) of the first, and $n$ other faces (necessarily all parallelograms) joining corresponding sides of the two bases.\footnote{Shamelessly copied from \href{https://en.wikipedia.org/wiki/Prism_(geometry)}{Wikipedia}, CC BY-SA 3.0.}
+	The volume of a prism is the product of the area of its base and its height.
+	The surface area of a prism can be found by finding the area of each face and adding everything up.
+
+	\subsection*{Cylinders}
+	The volume of a cylinder can be found by multiplying its base area with its height, just like prisms.
+	To find the surface area of a cylinder, imagine unwrapping its side surface into a rectangle.
+	Its height is the height of the cylinder and its width is the circumference of its base.
+	Take the product of the base circumference and the height, and add it to the area of the two circular faces.
+
+	\subsection*{Pyramids}
+	The volume of a pyramid is a third of the volume of a prism with the same base and height.
+
+	\subsection*{Cones}
+	Similar to pyramids, the volume of a cone is a third of the volume of the cylinder with the same base and height.
+
+	\subsection*{Spheres}
+	The volume of a sphere with radius $r$ is $\frac{4}{3}\pi r^3$.
+	The surface area of a sphere is $4\pi r^2$, which is four times the area of a circle with the same radius.
+	Here's a fascinating proof of this formula from 3Blue1Brown: \url{https://youtu.be/GNcFjFmqEc8}.
+\end{multicols}
+\end{document}
