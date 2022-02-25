@@ -1,104 +1,86 @@
 \documentclass{article}
+
 \usepackage{enumitem}
 \usepackage{siunitx}
 \usepackage{amsmath}
-\title{1.1 Systems of Equations}
+
+\title{1.1 Systems of Equations Notes}
 \author{}
 \date{}
+
 \begin{document}
     \maketitle
     \section*{Important Concepts}
     \subsection*{Variables, Expressions, and Equations}
-    A \textbf{variable} is a letter used to represent a potentially unknown
-    value. $x$ is often used by convention to denote a value in an equation
-    which we're trying to find. An \textbf{expression} is a combination of
-    \emph{symbols}, which can include numbers such as $42$, operators such as
-    $+$, and variables such as $x$. An \textbf{equation} is a statement which
-    states that two expressions are equal. For example, $2x - 7 = x - 8$ is an
-    equation which states that the values of the expression $2x - 7$ and the
-    expression $x - 8$ are equal.
+    A \textbf{variable} is a letter used to represent a potentially unknown value.
+    $x$ is often used by convention to denote a value in an equation which we're trying to find.
+    An \textbf{expression} is a combination of \emph{symbols}, which can include numbers such as $42$, operators such as $+$, and variables such as $x$.
+    An \textbf{equation} is a statement which states that two expressions are equal.
+    For example, $2x - 7 = x - 8$ is an equation which states that the values of the expression $2x - 7$ and the expression $x - 8$ are equal.
     \subsection*{Notation}
-    In algebra and more advanced mathematics, the $\times$ sign is rarely used
-    to denote multiplication. Instead, the $\cdot$ sign is used. For example, we
-    write $3 \cdot 4$ instead of $3 \times 4$. The multiplication operator may
-    also be completely omitted if it doesn't cause ambiguity. For example, $ab$
-    means $a$ times $b$, and $3x$ means $3$ times $x$. When we multiply a number
-    by a variable, we typically write the number first, so we would write $4x$
-    instead of $x4$. We also rarely use the $\div$ sign. Instead, we use the $/$
-    sign or the fraction bar.
+    In algebra and more advanced mathematics, the $\times$ sign is rarely used to denote multiplication.
+    Instead, the $\cdot$ sign is used.
+    For example, we write $3 \cdot 4$ instead of $3 \times 4$.
+    The multiplication operator may also be completely omitted if it doesn't cause ambiguity.
+    For example, $ab$ means $a$ times $b$, and $3x$ means $3$ times $x$.
+    When we multiply a number by a variable, we typically write the number first, so we would write $4x$ instead of $x4$.
+    We also rarely use the $\div$ sign.
+    Instead, we use the $/$ sign or the fraction bar.
     \subsection*{Substituting Values}
-    The value of $2x - 7$ depends on the value of $x$. If we know the value of
-    $x$, we can \textbf{substitute} it into the expression to find the value of
-    the expression. For example, if $x = 4$, then we can replace the $x$ in $2x
-    - 7$ with $4$, so $2x - 7 = 2 \cdot 4 - 7 = 8 - 7 = 1$.
+    The value of $2x - 7$ depends on the value of $x$.
+    If we know the value of $x$, we can \textbf{substitute} it into the expression to find the value of the expression.
+    For example, if $x = 4$, then we can replace the $x$ in $2x - 7$ with $4$, so $2x - 7 = 2 \cdot 4 - 7 = 8 - 7 = 1$.
     \subsection*{Solving Equations}
-    When we have an equation involving variables, it's often useful to determine
-    what values can be assigned to the variables such that the equation is true.
-    We say that a value for an variable \textbf{satisfies} an equation if
-    substituting that value into the equation results in a true statement, and
-    we call such a value a \textbf{solution}.
+    When we have an equation involving variables, it's often useful to determine what values can be assigned to the variables such that the equation is true.
+    We say that a value for an variable \textbf{satisfies} an equation if substituting that value into the equation results in a true statement, and we call such a value a \textbf{solution}.
 
-    If we know that two expressions are equal, we can apply the same operation
-    to both sides and they will still be equal. This is an important fact that
-    we can use to solve equations. For example, if we know that $x + 2 = 5$,
-    then we know that subtracting $2$ from both sides will result in two equal
-    values. Therefore $x + 2 - 2 = 5 - 2$, so $x = 3$. By applying the same
-    operation to both sides, we can \emph{isolate} the variable so that we can
-    determine its value. For more complicated equations, we might need to apply
-    multiple operations as shown in the video. If a variable appears multiple
-    times, we will need to ``combine'' them by writing addition as
-    multiplication or factoring. For example, $2x + 3x = (2 + 3)x = 5x$.
+    If we know that two expressions are equal, we can apply the same operation to both sides and they will still be equal.
+    This is an important fact that we can use to solve equations.
+    For example, if we know that $x + 2 = 5$, then we know that subtracting $2$ from both sides will result in two equal values.
+    Therefore $x + 2 - 2 = 5 - 2$, so $x = 3$.
+    By applying the same operation to both sides, we can \emph{isolate} the variable so that we can determine its value.
+    For more complicated equations, we might need to apply multiple operations as shown in the video.
+    If a variable appears multiple times, we will need to ``combine'' them by writing addition as multiplication or factoring.
+    For example, $2x + 3x = (2 + 3)x = 5x$.
     \subsection*{Systems of Equations}
-    An equation with two variables generally has infinitely many solutions. For
-    example, some of the solutions of $y = 3x + 5$ are $(x, y) = (0, 5)$, $(x,
-    y) = (1, 8)$, and $(x, y) = (2, 11)$. If we add in a second equation
-    involving the two variables, we get a \textbf{system of equations} which
-    usually have one solution that satisfies both equations. For example, the
-    single solution to $y = 3x + 5$ and $2y = x + 9$ is $x = -\frac{1}{5}, y =
-    \frac{22}{5}$. To find the solutions to systems of equations, we can use
-    \textbf{substitution} and \textbf{elimination}. These methods transform a
-    system of two equations into a single equation involving one variable.
+    An equation with two variables generally has infinitely many solutions.
+    For example, some of the solutions of $y = 3x + 5$ are $(x, y) = (0, 5)$, $(x, y) = (1, 8)$, and $(x, y) = (2, 11)$.
+    If we add in a second equation involving the two variables, we get a \textbf{system of equations} which usually have one solution that satisfies both equations.
+    For example, the single solution to $y = 3x + 5$ and $2y = x + 9$ is $x = -\frac{1}{5}, y = \frac{22}{5}$.
+    To find the solutions to systems of equations, we can use \textbf{substitution} and \textbf{elimination}.
+    These methods transform a system of two equations into a single equation involving one variable.
     \subsubsection*{Substitution}
-    To solve a system of equations by substitution, we isolate one of the
-    variables in one equation and substitute the expression into the other
-    equations. For example, to solve $y = 3x + 5$ and $2y = x + 9$, we notice
-    that in the first equation, $y$ is already isolated. Therefore, we can
-    substitute the expression which $y$ is equal to into the second equation to
-    get $2(3x + 5) = x + 9$. This can then be solved using the methods for
-    single variable equations to find the value of $x$. Once we know $x$, we can
-    substitute its value into the first equation to find $y$.
+    To solve a system of equations by substitution, we isolate one of the variables in one equation and substitute the expression into the other equations.
+    For example, to solve $y = 3x + 5$ and $2y = x + 9$, we notice that in the first equation, $y$ is already isolated.
+    Therefore, we can substitute the expression which $y$ is equal to into the second equation to get $2(3x + 5) = x + 9$.
+    This can then be solved using the methods for single variable equations to find the value of $x$.
+    Once we know $x$, we can substitute its value into the first equation to find $y$.
     \subsubsection*{Elimination}
-    We know that adding the same value to both sides of an equation results in
-    an equivalent equation. If we know that $x + y = 8$ and $x - y = 4$, we can
-    add $x - y$ to the left side of the first equation and $4$ to the right side
-    since they are equal. Therefore, $x + y + x - y = 8 + 4$, so $2x = 12$ and
-    we've eliminated one of the variables. We can then solve for $x$ and use the
-    value of $x$ to find $y$. Sometimes, we may have to multiply the equations
-    by some constants before adding or subtracting them so that one of the
-    variables is eliminated. For example, if we have $x + y = 42$ and $2x + 3y =
-    2$, we can first multiply the first equation by $-2$ to get $-2x - 2y = -84$
-    and then add the two equations to eliminate $2x$.
+    We know that adding the same value to both sides of an equation results in an equivalent equation.
+    If we know that $x + y = 8$ and $x - y = 4$, we can add $x - y$ to the left side of the first equation and $4$ to the right side since they are equal.
+    Therefore, $x + y + x - y = 8 + 4$, so $2x = 12$ and we've eliminated one of the variables.
+    We can then solve for $x$ and use the value of $x$ to find $y$.
+    Sometimes, we may have to multiply the equations by some constants before adding or subtracting them so that one of the variables is eliminated.
+    For example, if we have $x + y = 42$ and $2x + 3y = 2$, we can first multiply the first equation by $-2$ to get $-2x - 2y = -84$ and then add the two equations to eliminate $2x$.
 
     \section*{Example Problem}
-    You can model many word problems with a system of equations. 
+    You can model many word problems with a system of equations.
     In this case, we already have a system set up for you.
     \begin{align}
         x + y &= 6 \label{eq1} \\
         x - y &= 5 \label{eq2}
     \end{align}
-    We have a choice of substitution and elimination. We'll first try 
-    substititon, and then we'll cover elimination.
+    We have a choice of substitution and elimination.
+    We'll first try substitution, and then we'll cover elimination.
     
     \subsection*{Substitution}
     \begin{enumerate}
-    \item Add $y$ to the left and right side of the equal sign of equation \eqref{eq2}
-    to isolate the $x$ variable to one side.
+    \item Add $y$ to the left and right side of the equal sign of equation \eqref{eq2} to isolate the $x$ variable to one side.
     \begin{align}
         x - y &= 5 \nonumber \\
         x &= 5 + y \label{eq3}
     \end{align} 
-    \item Then, substitute this new equation \eqref{eq3} into equation 
-    \eqref{eq1} and simplify.
+    \item Then, substitute this new equation \eqref{eq3} into equation \eqref{eq1} and simplify.
     \begin{align*}
         x + y &= 6 \\
         (5 + y) + y &= 6 \\
@@ -106,15 +88,13 @@
         2y &= 1 \\
         y &= \frac{1}{2}
     \end{align*}
-    \item After solving for $y$, we can substititute this equation back in to 
-    equation \eqref{eq1} to solve for $x$.
+    \item After solving for $y$, we can substitute this equation back in to equation \eqref{eq1} to solve for $x$.
     \begin{align*}
         x + y &= 6 \\
         x + \frac{1}{2} &= 6 \\
         x &= \frac{11}{2}
     \end{align*} 
-    \item We can check our answers by plugging in these $x$ and $y$ values 
-    into equation \eqref{eq2}.
+    \item We can check our answers by plugging in these $x$ and $y$ values into equation \eqref{eq2}.
     \begin{align*}
         x + y &= 6 \\
         \frac{11}{2} + \frac{1}{2} &= 6
@@ -123,7 +103,8 @@
 
     \subsection*{Elimination}
     \begin{enumerate}
-        \item Add equations \eqref{eq1} and \eqref{eq2} together and simplify. 
+        \item Add equations \eqref{eq1} and \eqref{eq2} together and simplify.
+        
         Notice that we are left with a single-variable equation.
         \begin{align*}
             x + y &= 6 \nonumber \\
